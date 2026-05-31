@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Portal demostrativo de SST Peru con fuentes oficiales, datos sinteticos y simulacion preventiva reproducible.">
+  <title>SST Peru Demo | Datos y prevencion</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#inicio"><span class="brand-mark">S</span><span>SST <b>Peru Demo</b></span></a>
+    <nav aria-label="Navegacion principal">
+      <a href="#inicio">Inicio</a><a href="#iperc">IPERC Demo</a><a href="#sat">SAT-MTPE</a><a href="#metodologia">Metodologia</a><a href="#fuentes">Fuentes</a>
+    </nav>
+    <a class="button button-primary button-small" href="#descargas">Descargar datos</a>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-copy">
+        <h1>Seguridad y Salud en el Trabajo, explicada con datos</h1>
+        <p>Una demostracion abierta para explorar normativa peruana, visualizar datos publicos SAT-MTPE y priorizar controles preventivos con supuestos transparentes.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#iperc">Explorar IPERC demo</a>
+          <a class="button button-secondary" href="#fuentes">Ver fuentes oficiales</a>
+        </div>
+        <div class="evidence-strip">
+          <span><b>Hechos</b> con fuente publica</span>
+          <span><b>Demo</b> siempre marcado</span>
+          <span><b>Inferencias</b> editables</span>
+        </div>
+      </div>
+      <div class="hero-panel">
+        <div class="panel-top"><span>Vista preventiva DEMO</span><span class="dot"></span></div>
+        <div class="mini-kpis">
+          <article><small>Riesgos demo</small><strong id="hero-risk-count">8</strong><em>SINTETICO</em></article>
+          <article><small>Prioridad critica</small><strong id="hero-critical-count">4</strong><em>SINTETICO</em></article>
+          <article><small>Ahorro referencial</small><strong id="hero-savings">S/ 0</strong><em>INFERENCIA</em></article>
+        </div>
+        <div class="preview-grid">
+          <div class="preview-chart"><h3>Prioridad de riesgos</h3><div id="hero-chart"></div></div>
+          <div class="preview-note"><small>Simulacion preventiva</small><b id="hero-avoided">0.00</b><span>incidentes evitados DEMO</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section iperc-section" id="iperc">
+      <div class="section-heading">
+        <div><p class="section-label">Matriz SINTETICA</p><h2>IPERC demo con prioridades visibles</h2><p>Filtra riesgos ficticios y revisa controles, responsables y costos estimados.</p></div>
+        <a class="notebook-link" href="https://notebooklm.google.com/notebook/68be3994-d058-4753-97fc-60ade6c56778?authuser=1" target="_blank" rel="noreferrer"><span class="info-icon">i</span><span><b>Informacion sobre IPERC</b><small>Abrir NotebookLM</small></span></a>
+      </div>
+      <div class="toolbar">
+        <label>Prioridad <select id="priority-filter"><option value="TODOS">Todas</option><option>CRITICO</option><option>ALTO</option><option>MEDIO</option></select></label>
+        <label>Buscar <input id="risk-search" type="search" placeholder="Area o riesgo"></label>
+        <a class="download-link" href="iperc_demo.csv" download>Descargar IPERC CSV</a>
+      </div>
+      <div class="table-wrap"><table><thead><tr><th>Riesgo DEMO</th><th>Area</th><th>Nivel</th><th>Puntaje</th><th>Control sugerido</th><th>Costo DEMO</th><th>Responsable</th></tr></thead><tbody id="iperc-body"></tbody></table></div>
+    </section>
+
+    <section class="section simulation-section" id="simulacion">
+      <div class="section-heading"><div><p class="section-label">INFERENCIA DEMO</p><h2>Simulacion preventiva editable</h2><p>Ajusta la eficacia global de los controles. El resultado es referencial, no predictivo.</p></div></div>
+      <div class="simulation-layout">
+        <div class="slider-panel">
+          <label for="effectiveness">Factor de eficacia aplicado <b id="effectiveness-label">100%</b></label>
+          <input id="effectiveness" type="range" min="30" max="120" value="100">
+          <p>Modifica solo la inferencia visual. El script Python conserva los supuestos fila por fila del CSV.</p>
+        </div>
+        <article class="result"><small>Incidentes evitados DEMO</small><strong id="avoided-total">0.00</strong><span>INFERENCIA DEMO</span></article>
+        <article class="result"><small>Ahorro referencial DEMO</small><strong id="savings-total">S/ 0</strong><span>INFERENCIA DEMO</span></article>
+      </div>
+    </section>
+
+    <section class="section sat-section" id="sat">
+      <div class="section-heading"><div><p class="section-label">HECHOS DOCUMENTADOS</p><h2>Resumen SAT-MTPE 2025</h2><p>Notificaciones publicadas por el MTPE. Son cifras agregadas y no describen una empresa particular.</p></div><a class="download-link" href="sat_mtpe_resumen.csv" download>Descargar resumen CSV</a></div>
+      <div class="sat-grid" id="sat-grid"></div>
+    </section>
+
+    <section class="section method-section" id="metodologia">
+      <div><p class="section-label">METODOLOGIA ABIERTA</p><h2>Tres capas, sin mezclar evidencias</h2></div>
+      <div class="method-flow">
+        <article><span>01</span><h3>Hechos documentados</h3><p>Normativa y boletines oficiales con URL y fecha de consulta.</p></article>
+        <article><span>02</span><h3>Datos sinteticos</h3><p>IPERC, EPP, costos y responsables marcados como DEMO.</p></article>
+        <article><span>03</span><h3>Inferencias demo</h3><p>Priorizacion y ahorro referencial calculados con supuestos editables.</p></article>
+      </div>
+      <p class="warning">Este proyecto no reemplaza auditoria legal, inspeccion SUNAFIL ni implementacion formal del SGSST.</p>
+    </section>
+
+    <section class="section sources-section" id="fuentes">
+      <div class="section-heading"><div><p class="section-label">TRAZABILIDAD</p><h2>Fuentes oficiales consultadas</h2><p>Cada fuente publica incluye enlace y fecha de consulta.</p></div></div>
+      <div class="source-list" id="source-list"></div>
+    </section>
+
+    <section class="section downloads-section" id="descargas">
+      <div><p class="section-label">ARCHIVOS ABIERTOS</p><h2>Descarga, revisa y reproduce</h2><p>Todo el material demostrativo esta disponible en formatos simples.</p></div>
+      <div class="downloads" id="downloads"></div>
+    </section>
+  </main>
+  <footer><span>SST Peru Demo</span><span>Datos publicos, supuestos visibles e inferencias reproducibles.</span></footer>
+  <script src="app.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,6 @@
+period,metric,value,unit,data_type,source_url,consulted_at,notes
+2025,Accidentes de trabajo no mortales,43750,notificaciones,HECHO_DOCUMENTADO,https://www.gob.pe/institucion/mtpe/informes-publicaciones/7764293-notificaciones-de-accidentes-de-trabajo-incidentes-peligrosos-y-enfermedades-ocupacionales-diciembre-2025,2026-05-31,Total anual publicado por MTPE
+2025,Accidentes de trabajo mortales,228,notificaciones,HECHO_DOCUMENTADO,https://www.gob.pe/institucion/mtpe/informes-publicaciones/7764293-notificaciones-de-accidentes-de-trabajo-incidentes-peligrosos-y-enfermedades-ocupacionales-diciembre-2025,2026-05-31,Total anual publicado por MTPE
+2025,Incidentes peligrosos,494,notificaciones,HECHO_DOCUMENTADO,https://www.gob.pe/institucion/mtpe/informes-publicaciones/7764293-notificaciones-de-accidentes-de-trabajo-incidentes-peligrosos-y-enfermedades-ocupacionales-diciembre-2025,2026-05-31,Total anual publicado por MTPE
+2025,Enfermedades ocupacionales,130,notificaciones,HECHO_DOCUMENTADO,https://www.gob.pe/institucion/mtpe/informes-publicaciones/7764293-notificaciones-de-accidentes-de-trabajo-incidentes-peligrosos-y-enfermedades-ocupacionales-diciembre-2025,2026-05-31,Total anual publicado por MTPE
+

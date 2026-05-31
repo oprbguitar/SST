@@ -1,0 +1,10 @@
+risk_id,area_demo,hazard_demo,risk_demo,probability_demo,severity_demo,risk_score_demo,priority_demo,control_demo,owner_demo,due_date_demo,control_cost_pen_demo,exposed_people_demo,incident_rate_demo,control_effectiveness_demo,reference_incident_cost_pen_demo,data_type,source_url,consulted_at
+R-001,Almacen DEMO,Apilamiento inestable,Caida de materiales,4,4,16,CRITICO,Redisenar estiba y checklist diario,Supervisor SST DEMO,2026-07-15,4200,18,0.18,0.62,6500,SINTETICO_DEMO,,2026-05-31
+R-002,Taller DEMO,Partes moviles sin resguardo,Atrapamiento,3,5,15,CRITICO,Instalar resguardos y bloqueo etiquetado,Responsable Mantenimiento DEMO,2026-06-30,7800,10,0.12,0.70,18000,SINTETICO_DEMO,,2026-05-31
+R-003,Oficina DEMO,Cables en zona de paso,Caida al mismo nivel,3,2,6,MEDIO,Canaletas y ronda de orden,Administracion DEMO,2026-06-20,650,24,0.10,0.55,1500,SINTETICO_DEMO,,2026-05-31
+R-004,Operaciones DEMO,Ruido continuo,Hipoacusia ocupacional,4,3,12,ALTO,Medicion ocupacional y proteccion auditiva,Supervisor SST DEMO,2026-08-01,3600,14,0.08,0.48,9000,SINTETICO_DEMO,,2026-05-31
+R-005,Carga DEMO,Manipulacion manual,Sobreesfuerzo musculoesqueletico,4,3,12,ALTO,Ayuda mecanica y capacitacion ergonomica,Jefatura Operaciones DEMO,2026-07-10,5200,22,0.16,0.50,3200,SINTETICO_DEMO,,2026-05-31
+R-006,Limpieza DEMO,Producto quimico irritante,Contacto con sustancia,2,3,6,MEDIO,SDS visible kit derrames y guantes adecuados,Supervisor SST DEMO,2026-06-25,1800,6,0.08,0.58,2800,SINTETICO_DEMO,,2026-05-31
+R-007,Mantenimiento DEMO,Trabajo en altura,Caida a distinto nivel,3,5,15,CRITICO,Permiso de trabajo linea de vida y supervision,Responsable Mantenimiento DEMO,2026-06-18,9500,5,0.10,0.76,25000,SINTETICO_DEMO,,2026-05-31
+R-008,Patio DEMO,Transito interno mixto,Atropello o colision,3,5,15,CRITICO,Segregar rutas y colocar senalizacion,Jefatura Operaciones DEMO,2026-07-05,11200,16,0.09,0.64,22000,SINTETICO_DEMO,,2026-05-31
+

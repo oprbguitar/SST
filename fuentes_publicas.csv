@@ -1,0 +1,9 @@
+source_id,title,entity,data_type,source_url,consulted_at,usage_note
+SRC-001,Ley N. 29783 Ley de Seguridad y Salud en el Trabajo,Congreso de la Republica,HECHO_DOCUMENTADO,https://www.gob.pe/institucion/congreso-de-la-republica/normas-legales/462576-29783,2026-05-31,Indice normativo
+SRC-002,D.S. N. 005-2012-TR Reglamento de la Ley SST,MTPE,HECHO_DOCUMENTADO,https://www.gob.pe/institucion/mtpe/normas-legales/462577-005-2012-tr,2026-05-31,Indice normativo
+SRC-003,R.M. N. 050-2013-TR formatos referenciales y guia SGSST,MTPE,HECHO_DOCUMENTADO,https://www.gob.pe/institucion/mtpe/normas-legales/288031-050-2013-tr,2026-05-31,Indice normativo
+SRC-004,Normas nacionales de Seguridad y Salud en el Trabajo,MTPE,HECHO_DOCUMENTADO,https://www.gob.pe/institucion/mtpe/informes-publicaciones/470749-normas-nacionales-de-seguridad-y-salud-en-el-trabajo,2026-05-31,Compilacion tematica oficial SST
+SRC-005,Normatividad relacionada a la SST,SERVIR,HECHO_DOCUMENTADO,https://www.gob.pe/institucion/servir/informes-publicaciones/3572362-normatividad-relacionada-a-la-seguridad-y-salud-en-el-trabajo-sst,2026-05-31,Referencia oficial para entidades publicas
+SRC-006,Compendio normativo sobre la inspeccion del trabajo,SUNAFIL,HECHO_DOCUMENTADO,https://www.gob.pe/institucion/sunafil/colecciones/9354-compendio-normativo-sobre-la-inspeccion-del-trabajo,2026-05-31,Referencia complementaria de inspeccion
+SRC-007,Notificaciones SAT-MTPE correspondientes al ano 2025,MTPE,HECHO_DOCUMENTADO,https://www.gob.pe/institucion/mtpe/informes-publicaciones/7764293-notificaciones-de-accidentes-de-trabajo-incidentes-peligrosos-y-enfermedades-ocupacionales-diciembre-2025,2026-05-31,Resumen estadistico publico
+SRC-008,ILOSTAT Occupational injuries statistics,Organizacion Internacional del Trabajo,HECHO_DOCUMENTADO,https://ilostat.ilo.org/topics/safety-and-health-at-work/,2026-05-31,Referencia comparativa opcional

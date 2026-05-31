@@ -1,0 +1,9 @@
+risk_id,risk_demo,priority_demo,risk_score_demo,expected_incidents_demo,avoided_incidents_demo,reference_savings_pen_demo,data_type,source_url,consulted_at
+R-001,Caida de materiales,CRITICO,16,3.24,2.01,8857.20,INFERENCIA_DEMO,,2026-05-31
+R-008,Atropello o colision,CRITICO,15,1.44,0.92,9075.20,INFERENCIA_DEMO,,2026-05-31
+R-002,Atrapamiento,CRITICO,15,1.20,0.84,7320.00,INFERENCIA_DEMO,,2026-05-31
+R-007,Caida a distinto nivel,CRITICO,15,0.50,0.38,0.00,INFERENCIA_DEMO,,2026-05-31
+R-005,Sobreesfuerzo musculoesqueletico,ALTO,12,3.52,1.76,432.00,INFERENCIA_DEMO,,2026-05-31
+R-004,Hipoacusia ocupacional,ALTO,12,1.12,0.54,1238.40,INFERENCIA_DEMO,,2026-05-31
+R-003,Caida al mismo nivel,MEDIO,6,2.40,1.32,1330.00,INFERENCIA_DEMO,,2026-05-31
+R-006,Contacto con sustancia,MEDIO,6,0.48,0.28,-1020.48,INFERENCIA_DEMO,,2026-05-31

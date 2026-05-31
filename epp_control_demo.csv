@@ -1,0 +1,8 @@
+epp_id,worker_code_demo,area_demo,epp_demo,delivered_at_demo,next_inspection_demo,status_demo,unit_cost_pen_demo,owner_demo,data_type,source_url,consulted_at
+EPP-001,TRAB-DEMO-001,Almacen DEMO,Casco de seguridad,2026-04-10,2026-07-10,VIGENTE,42,Supervisor SST DEMO,SINTETICO_DEMO,,2026-05-31
+EPP-002,TRAB-DEMO-002,Taller DEMO,Lentes de seguridad,2026-03-15,2026-06-15,POR_REVISAR,18,Responsable Mantenimiento DEMO,SINTETICO_DEMO,,2026-05-31
+EPP-003,TRAB-DEMO-003,Operaciones DEMO,Protector auditivo,2026-05-02,2026-08-02,VIGENTE,55,Supervisor SST DEMO,SINTETICO_DEMO,,2026-05-31
+EPP-004,TRAB-DEMO-004,Limpieza DEMO,Guantes resistentes a quimicos,2026-02-01,2026-05-01,INSPECCION_VENCIDA,36,Supervisor SST DEMO,SINTETICO_DEMO,,2026-05-31
+EPP-005,TRAB-DEMO-005,Mantenimiento DEMO,Arnes de cuerpo completo,2026-05-10,2026-06-10,POR_REVISAR,390,Responsable Mantenimiento DEMO,SINTETICO_DEMO,,2026-05-31
+EPP-006,TRAB-DEMO-006,Patio DEMO,Chaleco reflectivo,2026-04-22,2026-07-22,VIGENTE,28,Jefatura Operaciones DEMO,SINTETICO_DEMO,,2026-05-31
+
