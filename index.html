@@ -1,106 +1,640 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" data-theme="light">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Portal demostrativo de SST Peru con fuentes oficiales, datos sinteticos y simulacion preventiva reproducible.">
-  <title>SST Peru Demo | Datos y prevencion</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dashboard ejecutivo de SST Perú con fuentes oficiales, datos sintéticos y simulación preventiva offline.">
+  <title>SST Perú Demo | Panel de Control Ejecutivo</title>
+  <!-- Google Fonts para tipografía premium -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <aside class="public-data-notice" aria-label="Declaracion de procedencia de datos">
-    <span><b>Pierre R.</b> declara que los datos de esta pagina provienen de fuentes publicas y oficiales del Estado peruano: MTPE, Congreso de la Republica, SUNAFIL y SERVIR.</span>
-    <a href="mailto:peru.labs.pe@gmail.com">Consultas adicionales: peru.labs.pe@gmail.com</a>
+
+  <!-- Barra de Metadatos Superior -->
+  <aside class="top-notice-bar" aria-label="Declaración de procedencia de datos">
+    <div class="notice-left">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 11 12 14 22 4"></polyline></svg>
+      <span>Datos simulados por <strong>Pierre R.</strong></span>
+    </div>
+    <div class="notice-center">
+      <span>Fuentes: MTPE, Congreso, SUNAFIL, SERVIR</span>
+    </div>
+    <div class="notice-right">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+      <a href="mailto:peru.labs.pe@gmail.com">peru.labs.pe@gmail.com</a>
+    </div>
   </aside>
+
+  <!-- Cabecera Principal y Menú Superior -->
   <header class="site-header">
-    <a class="brand" href="#inicio"><span class="brand-mark">S</span><span>SST <b>Peru Demo</b></span></a>
-    <nav aria-label="Navegacion principal">
-      <a href="#inicio">Inicio</a><a href="#iperc">IPERC Demo</a><a href="#sat">SAT-MTPE</a><a href="#metodologia">Metodologia</a><a href="#fuentes">Fuentes</a>
+    <div class="header-left">
+      <a class="back-btn" id="back-btn" title="Regresar al portafolio" href="https://oprbguitar.github.io/CV/?v=6aa8181">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+      </a>
+      <div class="logo-container">
+        <div class="logo-shield">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="#0056b3"/>
+            <path d="M12 20s6.5-3.5 6.5-8.5V6.2L12 3.8 5.5 6.2v5.3c0 5 6.5 8.5 6.5 8.5z" fill="#c4313d"/>
+            <path d="M10.5 7h3v3.5H17v3h-3.5V17h-3v-3.5H7v-3h3.5V7z" fill="white"/>
+          </svg>
+        </div>
+        <span class="brand-text">SST <strong>Perú Demo</strong></span>
+      </div>
+    </div>
+    
+    <nav class="nav-tabs" aria-label="Navegación principal">
+      <button class="tab-btn active" data-tab="resumen">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+        <span>Resumen</span>
+      </button>
+      <button class="tab-btn" data-tab="iperc">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+        <span>IPERC</span>
+      </button>
+      <button class="tab-btn" data-tab="sat-mtpe">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+        <span>SAT-MTPE</span>
+      </button>
+      <button class="tab-btn" data-tab="metodologia">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+        <span>Metodología</span>
+      </button>
+      <button class="tab-btn" data-tab="fuentes">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+        <span>Fuentes</span>
+      </button>
+      <button class="tab-btn" data-tab="descargas">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        <span>Descargas</span>
+      </button>
     </nav>
-    <a class="button button-primary button-small" href="#descargas">Descargar datos</a>
+    
+    <div class="header-right">
+      <button id="theme-toggle" class="theme-toggle-btn" title="Cambiar Tema (Modo Claro/Oscuro)" aria-label="Cambiar Tema">
+        <!-- Sol -->
+        <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        <!-- Luna -->
+        <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </div>
   </header>
 
-  <main>
-    <section class="hero" id="inicio">
-      <div class="hero-copy">
-        <h1>Seguridad y Salud en el Trabajo, explicada con datos</h1>
-        <p>Una demostracion abierta para explorar normativa peruana, visualizar datos publicos SAT-MTPE y priorizar controles preventivos con supuestos transparentes.</p>
-        <div class="hero-actions">
-          <a class="button button-primary" href="#iperc">Explorar IPERC demo</a>
-          <a class="button button-secondary" href="#fuentes">Ver fuentes oficiales</a>
+  <!-- Contenedor Principal (Dashboard y Vistas de Detalles) -->
+  <main class="main-content">
+    
+    <!-- Pestaña 1: Resumen (Dashboard General) -->
+    <section id="panel-resumen" class="tab-panel active">
+      <div class="dashboard-grid">
+        
+        <!-- Columna Izquierda: Información del Proyecto, IPERC resumida y Metodología resumida -->
+        <div class="dashboard-col left-col">
+          
+          <!-- Card de Presentación -->
+          <div class="card card-hero">
+            <div class="shield-container">
+              <svg viewBox="0 0 100 110" class="hero-shield-svg">
+                <defs>
+                  <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#2563eb" />
+                    <stop offset="100%" stop-color="#1e3a8a" />
+                  </linearGradient>
+                </defs>
+                <path d="M50 5 L90 20 L90 55 C90 85 50 105 50 105 C50 105 10 85 10 55 L10 20 Z" fill="url(#shieldGrad)" />
+                <path d="M50 12 L82 24 L82 55 C82 79 50 95 50 95 C50 95 18 79 18 55 L18 24 Z" fill="none" stroke="#60a5fa" stroke-width="4.5" />
+                <path d="M44 32 H56 V50 H74 V62 H56 V80 H44 V62 H26 V50 H44 Z" fill="white" />
+                <circle cx="80" cy="80" r="16" fill="#10b981" />
+                <path d="M72 80 L77 85 L87 74" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <div class="hero-info">
+              <h2>Seguridad y Salud en el Trabajo en una sola vista</h2>
+              <p>Demo público que resume normativa, riesgos, indicadores y fuentes oficiales del Perú en formato claro y accionable.</p>
+              
+              <div class="hero-badges">
+                <div class="h-badge green-badge">
+                  <span class="badge-icon">✓</span>
+                  <span>Basado en fuentes oficiales</span>
+                </div>
+                <div class="h-badge blue-badge">
+                  <span class="badge-icon">📊</span>
+                  <span>Indicadores e inferencias demo</span>
+                </div>
+                <div class="h-badge purple-badge">
+                  <span class="badge-icon">🎯</span>
+                  <span>Útil para decisiones preventivas</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card de IPERC resumido -->
+          <div class="card card-iperc-preview">
+            <div class="card-header">
+              <div class="header-title-pill">
+                <span class="pill pill-green">IPERC</span>
+                <h3>IPERC demo – ejemplos de riesgos</h3>
+              </div>
+              <div class="mini-tab-bar">
+                <button class="mini-tab-btn active" onclick="switchTab('iperc')">IPERC</button>
+                <button class="mini-tab-btn" onclick="switchTab('sat-mtpe')">SAT-MTPE</button>
+                <button class="mini-tab-btn" onclick="switchTab('metodologia')">Metodología</button>
+                <button class="mini-tab-btn" onclick="switchTab('fuentes')">Fuentes</button>
+                <button class="mini-tab-btn" onclick="switchTab('descargas')">Descargas</button>
+              </div>
+            </div>
+            <div class="table-container">
+              <table class="compact-table">
+                <thead>
+                  <tr>
+                    <th>Riesgo</th>
+                    <th>Área</th>
+                    <th>Nivel</th>
+                    <th>Puntaje</th>
+                    <th>Control sugerido</th>
+                  </tr>
+                </thead>
+                <tbody id="iperc-preview-body">
+                  <!-- Renderizado dinámicamente con JS (primeros 5 riesgos) -->
+                </tbody>
+              </table>
+            </div>
+            <div class="card-footer">
+              <span class="info-alert-text">
+                <span class="info-bubble">i</span>
+                Datos simulados para fines demostrativos.
+              </span>
+              <button class="inline-action-btn" onclick="switchTab('iperc')">
+                Ver más en IPERC ➔
+              </button>
+            </div>
+          </div>
+
+          <!-- Card de Metodología resumida -->
+          <div class="card card-methodology-preview">
+            <div class="card-header">
+              <div class="header-title-pill">
+                <span class="pill pill-purple">Metodología</span>
+                <h3>Metodología – Tres capas</h3>
+              </div>
+            </div>
+            <div class="methodology-preview-grid">
+              <div class="method-preview-item">
+                <div class="method-num bg-purple-soft">1</div>
+                <div class="method-text">
+                  <h4>Hechos documentados</h4>
+                  <p>Normativa y boletines oficiales (leyes, D.S., R.M.).</p>
+                </div>
+              </div>
+              <div class="method-preview-item">
+                <div class="method-num bg-blue-soft">2</div>
+                <div class="method-text">
+                  <h4>Datos sintéticos</h4>
+                  <p>IPERC, HPH, costos y responsables generados en demo.</p>
+                </div>
+              </div>
+              <div class="method-preview-item">
+                <div class="method-num bg-teal-soft">3</div>
+                <div class="method-text">
+                  <h4>Inferencias demo</h4>
+                  <p>Priorización y ahorro referencial con supuestos transparentes.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
-        <div class="evidence-strip">
-          <span><b>Hechos</b> con fuente publica</span>
-          <span><b>Demo</b> siempre marcado</span>
-          <span><b>Inferencias</b> editables</span>
+
+        <!-- Columna Derecha: KPIs de métricas, Gráficos dinámicos, SAT-MTPE resumida y Accesos directos -->
+        <div class="dashboard-col right-col">
+          
+          <!-- Fila de Tarjetas de Indicadores (KPIs) -->
+          <div class="kpis-row">
+            <div class="kpi-card bg-kpi-blue">
+              <div class="kpi-content">
+                <span class="kpi-label">Riesgos demo</span>
+                <strong class="kpi-value" id="hero-risk-count">8</strong>
+                <span class="kpi-sub">Identificados</span>
+              </div>
+              <div class="kpi-icon text-blue">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+              </div>
+            </div>
+
+            <div class="kpi-card bg-kpi-red">
+              <div class="kpi-content">
+                <span class="kpi-label">Prioridad crítica</span>
+                <strong class="kpi-value" id="hero-critical-count">4</strong>
+                <span class="kpi-sub">Riesgos críticos</span>
+              </div>
+              <div class="kpi-icon text-red">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+              </div>
+            </div>
+
+            <div class="kpi-card bg-kpi-green">
+              <div class="kpi-content">
+                <span class="kpi-label">Incidentes evitados demo</span>
+                <strong class="kpi-value" id="hero-avoided">0.00</strong>
+                <span class="kpi-sub">Proyección anual</span>
+              </div>
+              <div class="kpi-icon text-green">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+              </div>
+            </div>
+
+            <div class="kpi-card bg-kpi-orange">
+              <div class="kpi-content">
+                <span class="kpi-label">Ahorro referencial</span>
+                <strong class="kpi-value text-orange-val" id="hero-savings">S/ 0</strong>
+                <span class="kpi-sub">Potencial anual (PEN)</span>
+              </div>
+              <div class="kpi-icon text-orange">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fila de Gráficos (Prioridad & Simulación) -->
+          <div class="graphics-row">
+            
+            <!-- Tarjeta Gráfico de Prioridad (Barras horizontales) -->
+            <div class="card card-graph-bars">
+              <div class="graph-header">
+                <h3>Prioridad de riesgos (demo)</h3>
+              </div>
+              <div class="graph-body" id="hero-chart">
+                <!-- Se inyectan las barras horizontales por JS -->
+              </div>
+            </div>
+
+            <!-- Tarjeta Gráfico de Dona de Simulación con Slider -->
+            <div class="card card-graph-donut">
+              <div class="graph-header">
+                <h3>Simulación preventiva (impacto demo)</h3>
+              </div>
+              <div class="donut-container">
+                <div class="donut-viz-box">
+                  <div class="donut-chart-svg">
+                    <svg width="100" height="100" viewBox="0 0 42 42" class="donut">
+                      <circle class="donut-hole" cx="21" cy="21" r="15.915" fill="transparent"></circle>
+                      <circle class="donut-ring" cx="21" cy="21" r="15.915" fill="transparent" stroke="var(--bg-card-border)" stroke-width="4"></circle>
+                      <!-- Segmento dinámico -->
+                      <circle class="donut-segment" id="donut-dynamic-fill" cx="21" cy="21" r="15.915" fill="transparent" stroke="var(--primary-blue)" stroke-width="4" stroke-dasharray="80 20" stroke-dashoffset="25"></circle>
+                    </svg>
+                    <div class="donut-center-label">
+                      <strong id="donut-index-label">8.05</strong>
+                      <span>Índice demo<br>(0-10)</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="donut-legend-box">
+                  <div class="legend-row"><span class="legend-dot bg-red"></span> Controles críticos: <strong id="pct-critico">35%</strong></div>
+                  <div class="legend-row"><span class="legend-dot bg-orange"></span> Controles altos: <strong id="pct-alto">30%</strong></div>
+                  <div class="legend-row"><span class="legend-dot bg-yellow"></span> Controles medios: <strong id="pct-medio">25%</strong></div>
+                  <div class="legend-row"><span class="legend-dot bg-green"></span> Controles bajos: <strong id="pct-bajo">10%</strong></div>
+                </div>
+              </div>
+              <!-- Control Deslizante (Slider) de Eficacia -->
+              <div class="slider-box">
+                <div class="slider-header">
+                  <label for="effectiveness">Factor de eficacia aplicado: <strong id="effectiveness-label">100%</strong></label>
+                </div>
+                <input id="effectiveness" type="range" min="30" max="120" value="100" class="efficacy-slider">
+                <span class="slider-caption">Ajusta para alterar la inferencia de incidentes y ahorro en la demo.</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Tarjeta de Resumen SAT-MTPE -->
+          <div class="card card-sat-summary">
+            <div class="card-header">
+              <div class="header-title-pill">
+                <span class="pill pill-blue">Estadísticas</span>
+                <h3>SAT-MTPE 2025 – Resumen demo</h3>
+              </div>
+            </div>
+            <div class="sat-preview-row">
+              <div class="sat-metric-box">
+                <div class="sat-metric-icon bg-blue-light text-blue-dark">👥</div>
+                <div class="sat-metric-data">
+                  <strong id="sat-no-mortales">43,750</strong>
+                  <span>Accidentes no mortales</span>
+                </div>
+              </div>
+              <div class="sat-metric-box">
+                <div class="sat-metric-icon bg-red-light text-red-dark">♥</div>
+                <div class="sat-metric-data">
+                  <strong id="sat-mortales">228</strong>
+                  <span>Incidentes mortales</span>
+                </div>
+              </div>
+              <div class="sat-metric-box">
+                <div class="sat-metric-icon bg-green-light text-green-dark">🛡</div>
+                <div class="sat-metric-data">
+                  <strong id="sat-peligrosos">494</strong>
+                  <span>Incidentes peligrosos</span>
+                </div>
+              </div>
+              <div class="sat-metric-box">
+                <div class="sat-metric-icon bg-orange-light text-orange-dark">📄</div>
+                <div class="sat-metric-data">
+                  <strong id="sat-enfermedades">130</strong>
+                  <span>Enfermedades ocup.</span>
+                </div>
+              </div>
+            </div>
+            <div class="sat-preview-footer">
+              <span>Datos referenciales oficiales consolidados por el MTPE a nivel nacional.</span>
+            </div>
+          </div>
+
+          <!-- Fila Inferior: Fuentes y Acciones Rápidas -->
+          <div class="quick-info-row">
+            
+            <div class="card card-quick-sources">
+              <h3>Fuentes oficiales (principales)</h3>
+              <div class="quick-sources-flex">
+                <div class="quick-src-card" title="Ley N° 29783: Ley de Seguridad y Salud en el Trabajo">
+                  <span class="src-icon">📄</span>
+                  <div class="src-desc">
+                    <strong>Ley 29783</strong>
+                    <span>Ley de SST</span>
+                  </div>
+                </div>
+                <div class="quick-src-card" title="D.S. N° 005-2012-TR: Reglamento de la Ley">
+                  <span class="src-icon">⚖️</span>
+                  <div class="src-desc">
+                    <strong>D.S. 005-2012-TR</strong>
+                    <span>Reglamento Ley</span>
+                  </div>
+                </div>
+                <div class="quick-src-card" title="R.M. N° 050-2013-TR: Guías y formatos obligatorios">
+                  <span class="src-icon">📝</span>
+                  <div class="src-desc">
+                    <strong>R.M. 050-2013-TR</strong>
+                    <span>Formatos oblig.</span>
+                  </div>
+                </div>
+                <div class="quick-src-card" title="SUNAFIL: Superintendencia Nacional de Fiscalización Laboral">
+                  <span class="src-icon">🏢</span>
+                  <div class="src-desc">
+                    <strong>SUNAFIL</strong>
+                    <span>Fiscalización</span>
+                  </div>
+                </div>
+                <div class="quick-src-card" title="SERVIR: Autoridad Nacional del Servicio Civil">
+                  <span class="src-icon">👥</span>
+                  <div class="src-desc">
+                    <strong>SERVIR</strong>
+                    <span>Gestión Pública</span>
+                  </div>
+                </div>
+                <div class="quick-src-card" title="MTPE: Ministerio de Trabajo y Promoción del Empleo">
+                  <span class="src-icon">🏛</span>
+                  <div class="src-desc">
+                    <strong>MTPE</strong>
+                    <span>Políticas del Sector</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card card-actions-guide">
+              <h3>¿Qué puedes hacer?</h3>
+              <div class="actions-flex">
+                <button class="action-card-btn" onclick="switchTab('iperc')">
+                  <span class="act-icon bg-orange-soft text-orange">👁</span>
+                  <div class="act-desc">
+                    <strong>Explora datos</strong>
+                    <span>Revisa riesgos y controles.</span>
+                  </div>
+                </button>
+                <button class="action-card-btn" onclick="switchTab('resumen')">
+                  <span class="act-icon bg-green-soft text-green">⚙</span>
+                  <div class="act-desc">
+                    <strong>Toma decisiones</strong>
+                    <span>Ajusta la simulación.</span>
+                  </div>
+                </button>
+                <button class="action-card-btn" onclick="switchTab('fuentes')">
+                  <span class="act-icon bg-blue-soft text-blue">🔗</span>
+                  <div class="act-desc">
+                    <strong>Comparte</strong>
+                    <span>Accede a las fuentes oficiales.</span>
+                  </div>
+                </button>
+              </div>
+            </div>
+
+          </div>
+
         </div>
-      </div>
-      <div class="hero-panel">
-        <div class="panel-top"><span>Vista preventiva DEMO</span><span class="dot"></span></div>
-        <div class="mini-kpis">
-          <article><small>Riesgos demo</small><strong id="hero-risk-count">8</strong><em>SINTETICO</em></article>
-          <article><small>Prioridad critica</small><strong id="hero-critical-count">4</strong><em>SINTETICO</em></article>
-          <article><small>Ahorro referencial</small><strong id="hero-savings">S/ 0</strong><em>INFERENCIA</em></article>
-        </div>
-        <div class="preview-grid">
-          <div class="preview-chart"><h3>Prioridad de riesgos</h3><div id="hero-chart"></div></div>
-          <div class="preview-note"><small>Simulacion preventiva</small><b id="hero-avoided">0.00</b><span>incidentes evitados DEMO</span></div>
-        </div>
+
       </div>
     </section>
 
-    <section class="section iperc-section" id="iperc">
-      <div class="section-heading">
-        <div><p class="section-label">Matriz SINTETICA</p><h2>IPERC demo con prioridades visibles</h2><p>Filtra riesgos ficticios y revisa controles, responsables y costos estimados.</p></div>
-        <a class="notebook-link" href="https://notebooklm.google.com/notebook/68be3994-d058-4753-97fc-60ade6c56778?authuser=1" target="_blank" rel="noreferrer"><span class="info-icon">i</span><span><b>Informacion sobre IPERC</b><small>Abrir NotebookLM</small></span></a>
+    <!-- Pestaña 2: IPERC Completo -->
+    <section id="panel-iperc" class="tab-panel">
+      <div class="panel-header-with-actions">
+        <div>
+          <span class="pill pill-green">Matriz SINTÉTICA</span>
+          <h2>IPERC demo con prioridades visibles</h2>
+          <p>Filtra riesgos ficticios y revisa controles, responsables y costos estimados de mitigación.</p>
+        </div>
+        <div class="header-action-group">
+          <a class="notebook-link-btn" href="https://notebooklm.google.com/notebook/68be3994-d058-4753-97fc-60ade6c56778?authuser=1" target="_blank" rel="noreferrer">
+            <span class="info-icon">i</span>
+            <span>Información sobre IPERC (NotebookLM)</span>
+          </a>
+        </div>
       </div>
+      
       <div class="toolbar">
-        <label>Prioridad <select id="priority-filter"><option value="TODOS">Todas</option><option>CRITICO</option><option>ALTO</option><option>MEDIO</option></select></label>
-        <label>Buscar <input id="risk-search" type="search" placeholder="Area o riesgo"></label>
-        <a class="download-link" href="iperc_demo.csv" download>Descargar IPERC CSV</a>
-      </div>
-      <div class="table-wrap"><table><thead><tr><th>Riesgo DEMO</th><th>Area</th><th>Nivel</th><th>Puntaje</th><th>Control sugerido</th><th>Costo DEMO</th><th>Responsable</th></tr></thead><tbody id="iperc-body"></tbody></table></div>
-    </section>
-
-    <section class="section simulation-section" id="simulacion">
-      <div class="section-heading"><div><p class="section-label">INFERENCIA DEMO</p><h2>Simulacion preventiva editable</h2><p>Ajusta la eficacia global de los controles. El resultado es referencial, no predictivo.</p></div></div>
-      <div class="simulation-layout">
-        <div class="slider-panel">
-          <label for="effectiveness">Factor de eficacia aplicado <b id="effectiveness-label">100%</b></label>
-          <input id="effectiveness" type="range" min="30" max="120" value="100">
-          <p>Modifica solo la inferencia visual. El script Python conserva los supuestos fila por fila del CSV.</p>
+        <div class="toolbar-item">
+          <label for="priority-filter">Nivel de Prioridad</label>
+          <select id="priority-filter">
+            <option value="TODOS">Todas las prioridades</option>
+            <option value="CRITICO">CRÍTICO</option>
+            <option value="ALTO">ALTO</option>
+            <option value="MEDIO">MEDIO</option>
+          </select>
         </div>
-        <article class="result"><small>Incidentes evitados DEMO</small><strong id="avoided-total">0.00</strong><span>INFERENCIA DEMO</span></article>
-        <article class="result"><small>Ahorro referencial DEMO</small><strong id="savings-total">S/ 0</strong><span>INFERENCIA DEMO</span></article>
+        <div class="toolbar-item flex-grow">
+          <label for="risk-search">Buscar en matriz</label>
+          <input id="risk-search" type="search" placeholder="Escribe el nombre del riesgo o el área de trabajo...">
+        </div>
+        <div class="toolbar-item">
+          <label class="invisible-label">Descargar</label>
+          <a class="download-btn" href="iperc_demo.csv" download>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            Descargar IPERC CSV
+          </a>
+        </div>
+      </div>
+      
+      <div class="table-wrap main-table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Riesgo DEMO</th>
+              <th>Área</th>
+              <th>Nivel</th>
+              <th>Puntaje</th>
+              <th>Control sugerido</th>
+              <th>Costo DEMO</th>
+              <th>Responsable</th>
+            </tr>
+          </thead>
+          <tbody id="iperc-body">
+            <!-- Renderizado dinámicamente con JS -->
+          </tbody>
+        </table>
       </div>
     </section>
 
-    <section class="section sat-section" id="sat">
-      <div class="section-heading"><div><p class="section-label">HECHOS DOCUMENTADOS</p><h2>Resumen SAT-MTPE 2025</h2><p>Notificaciones publicadas por el MTPE. Son cifras agregadas y no describen una empresa particular.</p></div><a class="download-link" href="sat_mtpe_resumen.csv" download>Descargar resumen CSV</a></div>
-      <div class="sat-grid" id="sat-grid"></div>
-    </section>
-
-    <section class="section method-section" id="metodologia">
-      <div><p class="section-label">METODOLOGIA ABIERTA</p><h2>Tres capas, sin mezclar evidencias</h2></div>
-      <div class="method-flow">
-        <article><span>01</span><h3>Hechos documentados</h3><p>Normativa y boletines oficiales con URL y fecha de consulta.</p></article>
-        <article><span>02</span><h3>Datos sinteticos</h3><p>IPERC, EPP, costos y responsables marcados como DEMO.</p></article>
-        <article><span>03</span><h3>Inferencias demo</h3><p>Priorizacion y ahorro referencial calculados con supuestos editables.</p></article>
+    <!-- Pestaña 3: SAT-MTPE Detallado -->
+    <section id="panel-sat-mtpe" class="tab-panel">
+      <div class="panel-header-with-actions">
+        <div>
+          <span class="pill pill-blue">HECHOS DOCUMENTADOS</span>
+          <h2>Resumen SAT-MTPE 2025</h2>
+          <p>Notificaciones nacionales publicadas por el Ministerio de Trabajo y Promoción del Empleo.</p>
+        </div>
+        <div>
+          <a class="download-btn" href="sat_mtpe_resumen.csv" download>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            Descargar Resumen CSV
+          </a>
+        </div>
       </div>
-      <p class="warning">Este proyecto no reemplaza auditoria legal, inspeccion SUNAFIL ni implementacion formal del SGSST.</p>
+      
+      <div class="sat-grid-full" id="sat-grid">
+        <!-- Renderizado dinámicamente con JS -->
+      </div>
+
+      <div class="card detailed-info-card">
+        <h3>¿Qué es el Boletín SAT-MTPE?</h3>
+        <p>El Boletín Estadístico Mensual recopila las notificaciones del Sistema de Accidentes de Trabajo (SAT) provistas por los empleadores y centros médicos a nivel nacional. Muestra las cifras acumuladas del año y es de suma importancia para entender los puntos críticos de siniestralidad, guiar la fiscalización laboral de SUNAFIL y promover una cultura de prevención en empresas públicas y privadas de todo el Perú.</p>
+      </div>
     </section>
 
-    <section class="section sources-section" id="fuentes">
-      <div class="section-heading"><div><p class="section-label">TRAZABILIDAD</p><h2>Fuentes oficiales consultadas</h2><p>Cada fuente publica incluye enlace y fecha de consulta.</p></div></div>
-      <div class="source-list" id="source-list"></div>
+    <!-- Pestaña 4: Metodología -->
+    <section id="panel-metodologia" class="tab-panel">
+      <div class="panel-header-with-actions">
+        <div>
+          <span class="pill pill-purple">METODOLOGÍA ABIERTA</span>
+          <h2>Tres capas de evidencia y análisis</h2>
+          <p>Entiende cómo se estructuran y diferencian los datos y supuestos en este portal interactivo.</p>
+        </div>
+      </div>
+      
+      <div class="metodologia-wrapper">
+        <div class="metodologia-cards-grid">
+          
+          <div class="card method-card bg-purple-soft-border">
+            <span class="method-badge bg-purple">01</span>
+            <h3>Hechos documentados</h3>
+            <p>Se compone de las normativas vigentes en el Perú (Leyes del Congreso y Reglamentos del MTPE/SERVIR/SUNAFIL) así como las cifras publicadas en el boletín estadístico SAT-MTPE 2025. Toda esta información representa hechos públicos contrastables y verificados.</p>
+          </div>
+
+          <div class="card method-card bg-blue-soft-border">
+            <span class="method-badge bg-blue">02</span>
+            <h3>Datos sintéticos</h3>
+            <p>Corresponde a la matriz IPERC simulada (riesgos, áreas operativas, valoraciones, costos aproximados de control y responsables). Estos datos son artificiales, creados expresamente para demostrar la funcionalidad del sistema sin violar la confidencialidad corporativa.</p>
+          </div>
+
+          <div class="card method-card bg-teal-soft-border">
+            <span class="method-badge bg-teal">03</span>
+            <h3>Inferencias demo</h3>
+            <p>Representa el cálculo del impacto estimado. Multiplicando la exposición simulada por la tasa de accidentes demo, y aplicando el factor de eficacia ajustable (slider), determinamos de forma teórica los incidentes evitados y el ahorro financiero referencial resultante de los controles.</p>
+          </div>
+
+        </div>
+
+        <div class="card formula-card">
+          <h3>Fórmula matemática aplicada en la simulación</h3>
+          <div class="formula-box">
+            <code>puntaje_riesgo = probabilidad * severidad</code><br>
+            <code>incidentes_esperados_demo = exposicion_personas * tasa_base_incidente_demo</code><br>
+            <code>incidentes_evitados_demo = incidentes_esperados_demo * eficacia_control_demo * factor_deslizante</code><br>
+            <code>ahorro_referencial_demo = incidentes_evitados_demo * costo_referencial_por_incidente - costo_control_demo</code>
+          </div>
+          <p class="formula-caption">Nota: Los parámetros de cálculo provienen del archivo indexado <code>metodologia_simulacion.md</code>.</p>
+        </div>
+
+        <div class="card warning-card-large">
+          <span class="warning-large-icon">⚠️</span>
+          <div class="warning-large-content">
+            <h3>Advertencia Obligatoria e Importante</h3>
+            <p>Este sitio web es exclusivamente demostrativo. Las estimaciones de costos, eficacias y tasas de ahorro no representan garantías legales ni contables. Este sistema no sustituye en ningún caso a un prevencionista de riesgos colegiado, una inspección de la SUNAFIL ni los procesos obligatorios de elección de comité y aprobación del Reglamento Interno de SST (RISST) establecidos en la Ley 29783.</p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section class="section downloads-section" id="descargas">
-      <div><p class="section-label">ARCHIVOS ABIERTOS</p><h2>Descarga, revisa y reproduce</h2><p>Todo el material demostrativo esta disponible en formatos simples.</p></div>
-      <div class="downloads" id="downloads"></div>
+    <!-- Pestaña 5: Fuentes Oficiales -->
+    <section id="panel-fuentes" class="tab-panel">
+      <div class="panel-header-with-actions">
+        <div>
+          <span class="pill pill-teal">TRAZABILIDAD</span>
+          <h2>Fuentes oficiales de información</h2>
+          <p>Consulta las normativas legales, boletines y compendios estadísticos del Estado Peruano en los que se apoya esta demostración.</p>
+        </div>
+      </div>
+      
+      <div class="source-list-container" id="source-list">
+        <!-- Renderizado dinámicamente con JS -->
+      </div>
     </section>
+
+    <!-- Pestaña 6: Descargas -->
+    <section id="panel-descargas" class="tab-panel">
+      <div class="panel-header-with-actions">
+        <div>
+          <span class="pill pill-red">DESCARGAS</span>
+          <h2>Recursos y archivos del proyecto</h2>
+          <p>Descarga la documentación de respaldo, plantillas y scripts que estructuran esta demostración para su reproducción offline.</p>
+        </div>
+      </div>
+      
+      <div class="downloads-layout">
+        <div class="downloads-grid" id="downloads">
+          <!-- Renderizado dinámicamente con JS -->
+        </div>
+
+        <div class="card alert-status-card">
+          <h3>Soporte Offline y Disponibilidad</h3>
+          <p>Al ejecutar el proyecto de forma local, todos los archivos descargables listados deben estar ubicados en la misma carpeta raíz que este archivo <code>index.html</code>. Si al hacer clic en un enlace de descarga el navegador indica que el archivo no existe, verifique que se haya completado la extracción del proyecto o que los archivos no hayan sido movidos de directorio.</p>
+          <div class="download-fallback-notice">
+            <span class="bullet-dot"></span>
+            Si se requiere un archivo de descarga complementario que no está disponible, se indicará con la etiqueta <em>"Archivo no disponible"</em> o <em>"Próximamente"</em>.
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
-  <footer><span>SST Peru Demo</span><span>Datos publicos, supuestos visibles e inferencias reproducibles.</span></footer>
+
+  <!-- Pie de Página Ejecutivo -->
+  <footer class="site-footer">
+    <div class="footer-left">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M12 8v4"></path><path d="M12 16h.01"></path></svg>
+      <span>Sitio demostrativo con datos públicos y supuestos reproducibles para fines informativos y preventivos.</span>
+    </div>
+    <div class="footer-right">
+      <span>Transparencia</span>
+      <span class="sep">•</span>
+      <span>Prevención</span>
+      <span class="sep">•</span>
+      <span>Evidencia</span>
+    </div>
+  </footer>
+
   <script src="app.js"></script>
 </body>
 </html>
